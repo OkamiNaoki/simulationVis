@@ -3,17 +3,37 @@
 <title>w02:task2</title>
 </head>
 <body>
-
+    <form>
+        <input type="number" id="x0" placeholder="x0">
+        <input type="number" id="y0" placeholder="y0">
+        <input type="number" id="z0" placeholder="z0"><br><br>
+        <input type="number" id="x1" placeholder="x1">
+        <input type="number" id="y1" placeholder="y1">
+        <input type="number" id="z1" placeholder="z1"><br><br>
+        <input type="number" id="x2" placeholder="x2">
+        <input type="number" id="y2" placeholder="y2">
+        <input type="number" id="z2" placeholder="z2">
+        <input type="button" value="Calc" onclick="calc()">
+    </form>
 <script src="vec3.js"></script>
 <script>
-    var x0=1, y0=5, z0=3; // (input vertex 0)
-    var x1=3, y1=4, z1=5; // (input vertex 1)
-    var x2=7, y2=8, z2=9; // (input vertex 2)
-    var v0 = new Vec3( x0, y0, z0 );
-    var v1 = new Vec3( x1, y1, z1 );
-    var v2 = new Vec3( x2, y2, z2 );
-    var S = AreaOfTriangle( v0, v1, v2 ); // (output value)
-    console.log(S);
+    function calc(){
+        var x0 = parseFloat(document.getElementById("x0").value);
+        var y0 = parseFloat(document.getElementById("y0").value);
+        var z0 = parseFloat(document.getElementById("z0").value);
+        var x1 = parseFloat(document.getElementById("x1").value);
+        var y1 = parseFloat(document.getElementById("y1").value);
+        var z1 = parseFloat(document.getElementById("z1").value);
+        var x2 = parseFloat(document.getElementById("x2").value);
+        var y2 = parseFloat(document.getElementById("y2").value);
+        var z2 = parseFloat(document.getElementById("z2").value);
+        var v0 = new Vec3( x0, y0, z0 );
+        var v1 = new Vec3( x1, y1, z1 );
+        var v2 = new Vec3( x2, y2, z2 );
+        var S = AreaOfTriangle( v0, v1, v2 ); // (output value)
+        console.log(S);
+    }
+
 </script>
 </body>
 </html>
