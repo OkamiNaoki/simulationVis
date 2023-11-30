@@ -1,5 +1,5 @@
-'Apple', 100
-'Banana', 200
-'Cookie', 50
-'Doughnut',120
-'Egg', 80
+    { label: 'Category A', value: 100 },
+    { label: 'Category B', value: 200 },
+    { label: 'Category C', value: 50 },
+    { label: 'Category D', value: 120 },
+    { label: 'Category E', value: 80 }

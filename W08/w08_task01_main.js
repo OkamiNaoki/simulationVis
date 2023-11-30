@@ -71,5 +71,5 @@ class BarChart {
 }
 
 // Usage example
-const chart = new BarChart('#drawing_region', 'https://OkamiNaoki.github.io/simulationVis/W04/w04_task2.csv');
+const chart = new BarChart('#drawing_region', 'https://OkamiNaoki.github.io/simulationVis/W08/a.csv');
 chart.init();
