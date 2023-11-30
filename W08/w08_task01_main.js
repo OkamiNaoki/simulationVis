@@ -38,6 +38,7 @@ class BarChart {
     }
 
     update(data) {
+        console.log(data)
         this.xscale.domain([0, d3.max(data, d => +d.value)]);
         this.yscale.domain(data.map(d => d.label));
         console.log(data.map(d => d.label))
