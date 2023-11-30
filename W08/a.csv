@@ -1,5 +1,6 @@
-label: 'Category A', value: 100 
-label: 'Category B', value: 200 
-label: 'Category C', value: 50 
-label: 'Category D', value: 120
-label: 'Category E', value: 80 
+label,value
+Category A,100
+Category B,200
+Category C,50
+Category D,120
+Category E,80
