@@ -40,31 +40,61 @@ class PieChart {
         });
     }
 
+    // update(data) {
+    //     console.log(data)
+    //     const arcs = this.svg.selectAll(".arc")
+    //         .data(this.pie(data));
+
+    //     arcs.enter().append("path")
+    //         .attr("class", "arc")
+    //         .merge(arcs)
+    //         .attr("d", this.arc)
+    //         .attr("fill", (d, i) => this.colors(i))
+    //         .on("mouseover", d => {
+    //             this.tooltip.transition()
+    //                 .duration(200)
+    //                 .style("opacity", 0.9);
+    //             this.tooltip.html(`${data.map(d => d.label)}: ${data.map(d => d.value)}`)
+    //                 .style("left", `${d3.event.pageX}px`)
+    //                 .style("top", `${d3.event.pageY - 28}px`);
+    //         })
+    //         .on("mouseout", () => {
+    //             this.tooltip.transition()
+    //                 .duration(500)
+    //                 .style("opacity", 0);
+    //         });
+
+    //     arcs.exit().remove();
+    // }
     update(data) {
+        console.log(data);
+    
         const arcs = this.svg.selectAll(".arc")
             .data(this.pie(data));
-
+    
         arcs.enter().append("path")
             .attr("class", "arc")
             .merge(arcs)
             .attr("d", this.arc)
-            .attr("fill", (d, i) => this.colors(i))
-            .on("mouseover", d => {
-                this.tooltip.transition()
-                    .duration(200)
-                    .style("opacity", 0.9);
-                this.tooltip.html(`${d.data.label}: ${d.data.value}`)
-                    .style("left", `${d3.event.pageX}px`)
-                    .style("top", `${d3.event.pageY - 28}px`);
-            })
-            .on("mouseout", () => {
-                this.tooltip.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            });
-
+            .attr("fill", (d, i) => this.colors(i));
+    
         arcs.exit().remove();
+    
+        // ラベル表示用のtext要素を追加
+        const labels = this.svg.selectAll(".label")
+            .data(this.pie(data));
+    
+        labels.enter().append("text")
+            .attr("class", "label")
+            .merge(labels)
+            .attr("transform", d => `translate(${this.arc.centroid(d)})`)
+            .attr("dy", "0.35em")
+            .attr("text-anchor", "middle")
+            .text(d => d.data.label);  // ラベルの表示
+    
+        labels.exit().remove();
     }
+    
 
     render() {
         // Additional rendering options (e.g., legend, title) can be added here.
