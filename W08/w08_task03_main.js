@@ -102,4 +102,5 @@ class PieChart {
 }
 
 // Usage example
-const pieChart = new PieChart('#drawing_region', 'https://OkamiNaoki.github.io/simulationVis/W08/a.csv');
+const chart=new PieChart('#drawing_region', 'https://OkamiNaoki.github.io/simulationVis/W08/a.csv');
+chart.init();
